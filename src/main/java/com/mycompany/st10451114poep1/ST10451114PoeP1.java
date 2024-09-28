@@ -3,6 +3,7 @@
  */
 
 package com.mycompany.st10451114poep1;
+
 import java.util.Scanner;
 /**
  *
@@ -11,31 +12,32 @@ import java.util.Scanner;
 public class ST10451114PoeP1 {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        register myRegisterObj = new register();
+        Scanner cs;
+        cs = new Scanner(System.in);
+        Registration myRegistratinObj = new Registration();
 
         // Check if the username is valid
-        boolean isUsernameValid = myRegisterObj.checkUsername(sc);
+        boolean isUsernameValid = myRegistratinObj.checkUsername(cs);
         String username = "";
         String password = "";
 
         if (isUsernameValid) {
             // Check the password
-            boolean isPasswordValid = myRegisterObj.checkPassword(sc);
+            boolean isPasswordValid = myRegistratinObj.checkPassword(cs);
             if (isPasswordValid) {
                 // Capture username and password after validation
-                username = myRegisterObj.getUsername();  // Retrieve captured username
-                password = myRegisterObj.getPassword();  // Retrieve captured password
+                username = myRegistratinObj.getUsername();  // Retrieve captured username
+                password = myRegistratinObj.getPassword();  // Retrieve captured password
 
                 // Collect first and last names for greeting purposes
                 System.out.println("Enter First Name: ");
-                String firstName = sc.next();
+                String firstName = cs.next();
 
                 System.out.println("Enter Last Name: ");
-                String lastName = sc.next();
+                String lastName = cs.next();
 
                 // Attempt to log in with the registered credentials
-                boolean isLoginSuccessful = register.loginUser(sc, username, password, firstName, lastName);
+                boolean isLoginSuccessful = Registration.loginUser(cs, username, password, firstName, lastName);
 
                 // Output login result
                 if (isLoginSuccessful) {
@@ -50,6 +52,6 @@ public class ST10451114PoeP1 {
             System.out.println("Username validation failed.");
         }
 
-        sc.close();  // Close the scanner
+        cs.close();  // Close the scanner
     }
 }
